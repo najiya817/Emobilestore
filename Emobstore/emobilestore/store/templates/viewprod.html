@@ -1,0 +1,84 @@
+{%extends 'nav.html'%}
+{% block nav %}
+{% load static %} 
+<link rel="stylesheet" href="{% static 'css/style.css' %}">    
+
+<body id="a" style="background-color: rgb(198, 197, 202);">
+  <h3 class="bg-warning text-center">PRODUCTS</h3>
+
+  {% if messages %}
+{% for i in messages %}
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <DIV class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{i}}
+    </DIV>
+    {% endif %}
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <DIV class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{i}}
+    </DIV>
+    {%endif%}
+{%endfor%}
+{%endif%}
+
+       
+  <!-- <div class="col-4"></div>
+  <div class="col-4">
+    
+  <form action=""  method="post" enctype="multipart/form-data" class="text-center">
+    {%csrf_token%}   
+    {%for i in data%}
+    <div class="card mt-5" style="width:100%;height: auto;">
+      
+
+      <div class="card mb-3 padding-left" style="max-width: 100%;height: auto; padding-left: 100px;padding-right: 100px;">
+        <div class="card-header">
+          {%if i.user == request.user %}
+          <h6 style="float: left;"><span class="material-symbols-outlined " >
+            person
+          </span>ME</h6>
+          {%else%}
+          <h6><span class="material-symbols-outlined">
+            person
+          </span>{{i.user.first_name}} {{i.user.last_name}}</h6>
+          {%endif%}
+        </div>
+  
+      <img class="card-img-top"  src="{{i.image.url}}" alt="Card image">
+      <div class="card-body">
+        <h5 class="card-title" style="float: left;">{{i.product_name}}</h5>
+        <h5 class="card-title" style="float: right;">Rs.{{i.price}}</h5><br><br>
+        <h6 class=" card-text">{{i.description}}</h6><br><br><br>
+        <a href="{% url 'editp' i.id %}" class="btn btn-success btn-sm" style="float: right;">EDIT</a>
+        <a href="{% url 'delp' i.id %}" class="btn btn-danger btn-sm" style="float: left;"> DELETE</a>
+</div>
+  </div>
+    {%endfor%}
+  </form>
+</div>
+<div class="col-4"></div>
+
+  </div> --> 
+  <form action=""  method="post" enctype="multipart/form-data" class="text-center">
+    {%csrf_token%}   
+
+  <div class="row mx-3">
+  {%for i in data%}
+ 
+      <div class="card mt-3 px-3 mx-1" style="width: 20rem; height: auto;"  >
+        <img class="card-img-top mt-3" src="{{i.image.url}}" alt="Card image cap" style="height: 300px;" >
+        <div class="card-body ">
+            <h4 class="card-title">Rs:{{i.price}}</h4>
+          <p class="card-text">{{i.description}}</p>
+          <div class="">
+            <a href="{% url 'editp' i.id %}" class="btn btn-success btn-sm" style="float: right;">EDIT</a>
+            <a href="{% url 'delp' i.id %}" class="btn btn-danger btn-sm" style="float: left;"> DELETE</a>
+              </div>
+        </div>
+
+      </div>
+  {%endfor%}
+</div>
+{% endblock nav %}

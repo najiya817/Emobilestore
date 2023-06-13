@@ -1,0 +1,16 @@
+#b{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}   
+#a{
+    background: rgb(226, 68, 136);
+    background: radial-gradient(circle, rgb(54, 22, 36) 0%, rgba(148,187,233,1) 100%);
+
+}
+.card{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}

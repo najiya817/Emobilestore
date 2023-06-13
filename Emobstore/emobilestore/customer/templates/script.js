@@ -1,0 +1,3 @@
+function fun(){
+    document.write()
+}

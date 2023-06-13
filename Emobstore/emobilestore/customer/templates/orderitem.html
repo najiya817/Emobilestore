@@ -1,0 +1,35 @@
+{% extends 'navbar.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/style.css' %}">    
+
+{% block nav %}
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        {% for i in data%}
+<h6>Order Summary:</h6><br><br>
+<p>Total MRP   :Rs.{{i.price}}</p>
+<p>Saved       :Rs</p>
+<hr>
+<p>Order Total :Rs.{{i.price}}</p>
+<a href="{% url 'custh' %}" class="btn btn-info">Proceed To Pay</a>
+</div>
+<div class="col-4"></div>
+</div>{%endfor%}
+<!-- <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="container mt-5" style="float: right;">
+            <form action=""  method="post" enctype="multipart/form-data" class="text-center">
+                {%csrf_token%}
+                <table class="" style="align-items: center;">
+                {{form.as_table}}
+                </table>
+            </form>
+           <br> <a href="{% url 'custh' %}"  class="btn btn-info form-control" >Proceed To Pay</a>
+        </div>
+    </div>
+ <div class="col-4"></div></div>
+</body>
+ -->
+{% endblock nav %}

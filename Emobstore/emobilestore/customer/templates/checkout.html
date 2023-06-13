@@ -1,0 +1,41 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block nav %}
+				
+					<div id="shipping-info" class="container">
+						
+						<h3 >DELIVERY TO:</h3>
+                        <form action="" method="post">
+                        <div class="form-field">
+							<input class="form-control Required" type="text" name="name" placeholder="Name.."><br>
+						</div>
+
+						
+						<div class="form-field">
+							<input class="form-control Required" type="text" name="address" placeholder="Address.."><br>
+						</div>
+						<div class="form-field">
+							<input class="form-control Required email" type="text" name="email" placeholder="email.."><br>
+						</div>
+
+						<div class="form-field">
+							<input class="form-control Required" type="text" name="city" placeholder="City.."><br>
+						</div>
+						<div class="form-field">
+							<input class="form-control Required" type="text" name="state" placeholder="State.."><br>
+						</div>
+						<div class="form-field">
+							<input class="form-control Required" type="text" name="pincode" placeholder="pincode.."><br>
+						</div>
+						<div class="form-field">
+							<input class="form-control Required" type="text" name="country" placeholder="country code..">
+						</div>
+					<br><br>
+
+					
+					<a class="btn btn-info" style="float: right;" href="{% url 'orderi' %}">save and Continue</a>
+				</form>
+			</div>
+
+			<br>
+{% endblock nav %}

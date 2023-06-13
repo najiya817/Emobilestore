@@ -1,0 +1,91 @@
+
+{%extends 'nav.html'%}
+{% block nav %}
+
+<body style="background-color: rgb(198, 197, 202);">
+  <h3 class="bg-warning text-center">MY PRODUCTS</h3>
+
+
+  {% if messages %}
+{% for i in messages %}
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <DIV class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{i}}
+    </DIV>
+    {% endif %}
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <DIV class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{i}}
+    </DIV>
+    {%endif%}
+{%endfor%}
+{%endif%}
+
+
+    
+  <form action=""  method="post" enctype="multipart/form-data" class="text-center">
+    {%csrf_token%}   
+    <!-- {%for i in data%}
+
+    <div class="card mb-3 padding-left" style="max-width: 100%;height: auto; padding-left: 100px;padding-right: 100px;">
+      <div class="card-header">
+        {%if i.user == request.user %}
+        <h6 style="float: left;"><span class="material-symbols-outlined " >
+          person
+        </span>ME</h6>
+        {%else%}
+        <h6><span class="material-symbols-outlined">
+          person
+        </span>{{i.user.first_name}} {{i.user.last_name}}</h6>
+        {%endif%}
+      </div>
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{i.image.url}}" class="card-img" alt="">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{i.product_name}}</h5>
+            <p class="card-text">Rs.{{i.price}}</p>
+            <p class="card-text text-left"><small class="text-muted" > {{i.description}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>  </div>
+    {%endfor%}
+  </form></div>
+</div>
+
+  </div> -->
+
+
+  <div class="row mx-3">
+    {%for i in data%}
+   
+        <div class="card mt-3 px-3 mx-1" style="width: 20rem; height: auto;"  >
+          <div class="card-title">
+            {%if i.user == request.user %}
+            <h6 style="float: left;"><span class="material-symbols-outlined " >
+              person
+            </span>ME</h6>
+            {%else%}
+            <h6><span class="material-symbols-outlined">
+              person
+            </span>{{i.user.first_name}} {{i.user.last_name}}</h6>
+            {%endif%}
+          </div>
+          <img class="card-img-top mt-3" src="{{i.image.url}}" alt="Card image cap" style="height: 300px;" >
+          <div class="card-body ">
+              <h4 class="card-title">Rs:{{i.price}}</h4>
+            <p class="card-text">{{i.description}}</p>
+            <div class="">
+                </div>
+          </div>
+  
+        </div>
+    {%endfor%}
+  </div>
+  
+{% endblock nav %}

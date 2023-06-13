@@ -1,0 +1,67 @@
+
+{% extends 'navbar.html' %}
+{% block nav %}
+    <!-- <div>
+      <div class="row">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-body">
+              </div>
+            </div></div>
+            <div class="col-6">
+                <h1>{{pro.product_name}}</h1>
+                <p>Rs{{pro.price}}</p>
+    <form action="" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button class="btn btn-warning">Buy Now</button>
+    </form></div>
+
+            </div>
+        </div></div>
+    </div></div> -->
+
+
+
+
+
+
+
+    <h1 class="text-center">CART</h1>
+    <a  class="btn btn-outline-primary mx-3" href="{% url 'custh' %}">&#x2190; Back </a><br><br><br>
+
+    <table class="table table-bordered">
+      <tr>
+            <th>IMAGES</th>
+            <th>PRODUCT NAME</th>
+            <th>PRICE</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>student-images</th>
+      </tr>
+{% for i in data %}
+<tr>
+      <td>{{i.first}}</td>
+      <td>{{i.last}}</td>
+      <td>{{i.age}}</td>
+      <td>{{i.address}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.phone}}</td>
+      <td>
+            {% if i.image %}
+            <img src="{{i.image.url}}" alt="" height="100px" width="100px">
+            {%endif%}
+      </td>
+      <td>
+            <a href="{% url 'delstu' i.id %}" class="btn btn-danger">delete</a>
+      </td>
+      <td>
+            <a href="{% url 'editstu' i.id %}" class="btn btn-info">edit</a>
+      </td>
+</tr>
+{%endfor%}
+</table>
+
+
+{% endblock nav %}

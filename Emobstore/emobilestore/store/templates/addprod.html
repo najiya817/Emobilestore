@@ -1,0 +1,21 @@
+{%extends 'nav.html'%}
+{% block nav %}
+        
+{% load static %} 
+<link rel="stylesheet" href="{% static 'css/style.css' %}">    
+<div class="container jumbotron mt-3">
+<h5 class="text-center">ADD PRODUCTS</h5>    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table table-active">
+          {{form.as_table}}
+          <tr>
+            <td colspan="2" class="text-center">
+              <button class="btn btn-success">ADD</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
+{% endblock nav %}

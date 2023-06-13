@@ -1,0 +1,109 @@
+
+{%extends 'navbar.html'%}
+{% block nav %}
+<body style="background-color: rgb(198, 197, 202);">
+
+
+  {% if messages %}
+{% for i in messages %}
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <DIV class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{i}}
+    </DIV>
+    {% endif %}
+    {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <DIV class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{i}}
+    </DIV>
+    {%endif%}
+{%endfor%}
+{%endif%}
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<form action=""  method="post" enctype="multipart/form-data" class="text-center">
+  {%csrf_token%}   
+
+<div class="row mx-3">
+{%for i in data%}
+
+    <div class="card mt-3 px-3 mx-1" style="width: 20rem; height: auto;"  >
+      <img class="card-img-top mt-3" src="{{i.image.url}}" alt="Card image cap" style="height: 300px;" >
+      <div class="card-body ">
+          <h4 class="card-title">{{i.product_name}}</h4>
+        <p class="card-text">Rs.{{i.price}}</p>
+        <p class="card-text text-left"><small class="text-muted" > {{i.description}}</small></p>
+
+
+
+       <p> <a href="{% url 'cart' i.id  %}" type="" class="btn btn-outline-success btn-sm" style="float: right;">
+          Add to cart
+        </a>
+
+        
+
+        <a href="{% url 'vcart' %}" type="" class="btn btn-outline-warning btn-sm" style="float: left;">
+          Go to cart
+        </a></p>
+
+
+        <div class=""></div>
+      </div>
+
+    </div>
+{%endfor%}
+</div>
+</form>
+</body>
+{% endblock nav %}
+
+
+
+
+
+
+
+
+
+<!--         
+<a href="{% url 'wish' %}" type="" class="btn btn-outline-success" style="float: right;" data-toggle="modal" data-target="#exampleModal">
+  Add to cart
+</a>
+
+<div class="modal fade" id="exampleModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ITEM ADDED TO CART!!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+        <a class="btn btn-warning btn-sm" href="{%url 'vcart' %}">Go To Cart</a>      
+</div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
